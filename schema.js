@@ -1,6 +1,6 @@
 const { gql } = require("apollo-server");
 const typeDefs = gql`
-  type Query @rateLimit(limit: 2, duration: 20) {
+  type Query @rateLimit(limit: 2, duration: 10) {
     book(isbn: String!): Book
     movie(title: String!): Movie
   }

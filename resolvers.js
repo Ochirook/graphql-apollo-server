@@ -16,13 +16,16 @@ const transformBookResponse = details => ({
 const resolvers = {
   Query: {
     book(parent, args, context) {
+      if (!context.user) {
+        throw new Error("Unauthorized");
+      }
       return axios
         .get(
           `https://openlibrary.org/api/books?bibkeys=ISBN:${args.isbn}&jscmd=details&format=json`
         )
         .then(
-          res => transformBookResponse(res.data[`ISBN:${args.isbn}`].details),
-          console.log(context.token)
+          res => transformBookResponse(res.data[`ISBN:${args.isbn}`].details)
+          // console.log(context.token)
         )
         .catch(err => console.log(err));
     },

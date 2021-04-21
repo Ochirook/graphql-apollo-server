@@ -8,7 +8,7 @@ const keyGenerator = (directiveArgs, obj, args, context, info) => {
     context,
     info
   )}`;
-  //   console.log("hello" + context.ip); // handsan hereglegchdiin ip-g hewlene
+  console.log("hello" + context.ip); // handsan hereglegchdiin ip-g hewlene
   //   console.log(context.token);
 };
 
